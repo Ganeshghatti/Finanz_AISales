@@ -1,5 +1,6 @@
 #Panel {
   border-right: 1px solid #b0bbc9;
+  z-index: 999 !important;
   .title {
     background: linear-gradient(180deg, #00bb83 0%, #1d698f 50%, #3a169c 100%);
     background-clip: text;
