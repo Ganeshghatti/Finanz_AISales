@@ -222,7 +222,7 @@ export default function Panel() {
 
           </Link>
 
-          <Link to="/email">
+          <Link to="/emails">
             <div className="gap-2 flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
