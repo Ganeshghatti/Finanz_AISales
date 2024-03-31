@@ -11,8 +11,8 @@ export default function Panel() {
   return (
     <div className="flex flex-col w-1/5 md:fixed items-end gap-6 " id="Panel">
       <div
-        className="w-full flex items-center justify-center md:justify-between md:px-4 py-4 h-24 md:fixed md:top-0 md:left-0 md:bg-white"
-        style={{ borderBottom: "1px solid #B0BBC9", zIndex: "998" }}
+        className="w-screen flex items-center justify-center md:justify-between md:px-4 py-4 h-24 md:fixed md:top-0 md:left-0 md:bg-white"
+        style={{ borderBottom: "1px solid #B0BBC9", zIndex: "998",width:"100vw" }}
       >
         <img src="/public\Assets\Images\logo2.png" alt="" />
         <div className="hidden md:block">
@@ -55,8 +55,8 @@ export default function Panel() {
       </div>
       {menu && (
         <div
-          className="flex-col gap-4 w-full fixed top-24 left-0 bg-white hidden md:flex md:px-6 md:py-10"
-          style={{ zIndex: "999" }}
+          className="flex-col gap-4 w-screen fixed top-24 left-0 bg-white hidden md:flex md:px-6 md:py-10"
+          style={{ zIndex: "999", width:"100vw" }}
         >
           <p className="title">Dashboard</p>
           <div className="flex flex-col gap-4">
