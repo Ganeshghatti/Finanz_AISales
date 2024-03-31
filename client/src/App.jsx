@@ -51,7 +51,7 @@ export default function App() {
             }
           />
           <Route
-            path="/email"
+            path="/emails"
             element={
               <AdminProtectedRoute>
                 <Emails />
