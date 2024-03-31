@@ -9,10 +9,10 @@ export default function Panel() {
     setmenu(!menu);
   };
   return (
-    <div className="flex flex-col w-1/5 md:fixed items-end gap-6" id="Panel">
+    <div className="flex flex-col w-1/5 md:fixed items-end gap-6 " id="Panel">
       <div
         className="w-full flex items-center justify-center md:justify-between md:px-4 py-4 h-24 md:fixed md:top-0 md:left-0 md:bg-white"
-        style={{ borderBottom: "1px solid #B0BBC9", zIndex: "999" }}
+        style={{ borderBottom: "1px solid #B0BBC9", zIndex: "998" }}
       >
         <img src="/public\Assets\Images\logo2.png" alt="" />
         <div className="hidden md:block">
@@ -54,7 +54,10 @@ export default function Panel() {
         </div>
       </div>
       {menu && (
-        <div className="flex-col gap-4 w-full fixed top-24 left-0 bg-white hidden md:flex md:px-6 md:py-10">
+        <div
+          className="flex-col gap-4 w-full fixed top-24 left-0 bg-white hidden md:flex md:px-6 md:py-10"
+          style={{ zIndex: "999" }}
+        >
           <p className="title">Dashboard</p>
           <div className="flex flex-col gap-4">
             <Link to="/single-call">
@@ -205,7 +208,7 @@ export default function Panel() {
               <p className="menu-item">Call Log</p>
             </div>
           </Link>
-          
+
           <Link to="/meetings">
             <div className="gap-2 flex items-center">
               <svg
@@ -219,7 +222,6 @@ export default function Panel() {
               </svg>
               <p className="menu-item">Meetings</p>
             </div>
-
           </Link>
 
           <Link to="/emails">
