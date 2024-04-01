@@ -328,11 +328,11 @@ exports.SingleCall = async (req, res, next) => {
   } = transfer_number;
 
   const data = {
-    phone_number: countryCode + phoneNumber,
+    phone_number: "+" + countryCode + phoneNumber,
     task: prompt,
     voice_id: 1,
     reduce_latency: false,
-    transfer_phone_number: transferCountryCode + transferPhoneNumber,
+    transfer_phone_number: "+" + transferCountryCode + transferPhoneNumber,
   };
 
   axios
@@ -410,7 +410,7 @@ exports.BulkCall = async (req, res, next) => {
             task: prompt,
             voice_id: voice,
             reduce_latency: false,
-            transfer_phone_number: transferCountryCode + transferPhoneNumber,
+            transfer_phone_number: "+" + transferCountryCode + transferPhoneNumber,
           };
         })
         .filter((call) => call !== null);
