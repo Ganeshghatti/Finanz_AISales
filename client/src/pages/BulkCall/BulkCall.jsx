@@ -75,26 +75,21 @@ export default function BulkCall() {
     parseCsv(file);
   };
 
-  const parseCsv = (e, file) => {
-    e.preventDefault();
-
+  const parseCsv = (file) => {
     Papa.parse(file, {
       header: true,
+      skipEmptyLines: true, // Skip empty lines to avoid processing them
       complete: (result) => {
-        const phone_numbers = result.data
-          .map((row) => {
-            return {
-              country_code: row.country_code,
-              actual_phone_number: row.actual_phone_number,
-            };
-          })
-          .filter(
-            (number) => number.country_code && number.actual_phone_number
-          );
-        setFormData({
-          ...formData,
-          phone_numbers,
-        });
+        const phoneNumbers = result.data.map(row => ({
+          country_code: row.country_code.trim(), // Trim to remove any accidental whitespace
+          actual_phone_number: row.actual_phone_number.trim(),
+        })).filter(number => number.country_code && number.actual_phone_number);
+  
+        // Use a function to update formData to ensure we're using the latest state
+        setFormData(prevData => ({
+          ...prevData,
+          phone_numbers: phoneNumbers,
+        }));
       },
     });
   };
