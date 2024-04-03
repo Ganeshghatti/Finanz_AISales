@@ -333,6 +333,8 @@ exports.SingleCall = async (req, res, next) => {
     voice_id: 1,
     reduce_latency: false,
     transfer_phone_number: "+" + transferCountryCode + transferPhoneNumber,
+    // language: "german",
+    "language": "ger",
   };
 
   axios
@@ -399,18 +401,19 @@ exports.BulkCall = async (req, res, next) => {
             );
             return null;
           }
-          console.log(
-            "Processing phone number:",
-            phoneNumber.actual_phone_number
-          );
           processedPhoneNumbers.add(phoneNumber.actual_phone_number);
+
+          // Ensure the phone_number concatenation correctly includes the country code and actual phone number
+          const fullPhoneNumber = phoneNumber.country_code + phoneNumber.actual_phone_number;
+          console.log("Processing phone number:", fullPhoneNumber);
+
           return {
-            phone_number:
-              "+" + phoneNumber.country_code + phoneNumber.actual_phone_number,
+            phone_number: "+" + fullPhoneNumber, // Fixed concatenation here
             task: prompt,
             voice_id: voice,
             reduce_latency: false,
-            transfer_phone_number: "+" + transferCountryCode + transferPhoneNumber,
+            transfer_phone_number: "+" + transferCountryCode + transferPhoneNumber, // Assumed correct formatting from input
+            "language": "ger",
           };
         })
         .filter((call) => call !== null);
